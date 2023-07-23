@@ -2,6 +2,17 @@
 
 Embedding this code in a ATMEGA8/48/88/168/328 will allow the microcontroller to act as 8-bit parallel to SPI master converter.
 
+The converter has two 8-bit registers:
+
+* the **data register**, used to exchange data between the parallel port and the SPI bus, and
+* the **config register**, used to configure the converted.
+
+## Configuration
+
+
+
+## Pinout
+
 The pinout of the ATMEGA will be as follows:
 
 ```
