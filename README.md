@@ -5,11 +5,17 @@ Embedding this code in a ATMEGA8/48/88/168/328 will allow the microcontroller to
 The converter has two 8-bit registers:
 
 * the **data register**, used to exchange data between the parallel port and the SPI bus, and
-* the **config register**, used to configure the converted.
+* the **config register**, used to configure the converter.
 
 ## Configuration
 
+The converter can be configured by setting a 8-bit value into the config register. The bits are the following:
 
+* **CS [0..1]**: defines which **CS** line to use. If set to `0`, no lines are selected.
+* **END[2]**: endianess of the SPI data: (1) LSB or (0) MSB.
+* **CPOL[3]**: clock polarity of SCK when IDLE.
+* **CPHA[4]**: data is sampled on the leading (0) or trailing (1) edge.
+* **SPEED[5..7]**: frequency divider: equivalent to the ATMEGA registers SPI2X, SPR1 and SPR0. See the ATMEGA datasheet for more information.
 
 ## Pinout
 
@@ -18,8 +24,8 @@ The pinout of the ATMEGA will be as follows:
 ```
         .------.
 ~RESET -|1   28|- D5
-  ~CS1 -|2   27|- D4
-  ~CS2 -|3   26|- D3
+  ~CS2 -|2   27|- D4
+  ~CS3 -|3   26|- D3
    ~RD -|4   25|- D2
    ~WR -|5   24|- D1
     RS -|6   23|- D0
@@ -29,7 +35,7 @@ The pinout of the ATMEGA will be as follows:
  XTAL2 -|10  19|- SCK
        -|11  18|- MISO
     D6 -|12  17|- MOSI
-    D7 -|13  16|- ~CS0
+    D7 -|13  16|- ~CS1
   ~IRQ -|14  15|- ~IN_USE
         `------´
 ```
