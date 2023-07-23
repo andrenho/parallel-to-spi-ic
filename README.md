@@ -15,7 +15,7 @@ The converter can be configured by setting a 8-bit value into the config registe
 * **END[2]**: endianess of the SPI data: (1) LSB or (0) MSB.
 * **CPOL[3]**: clock polarity of SCK when IDLE.
 * **CPHA[4]**: data is sampled on the leading (0) or trailing (1) edge.
-* **SPEED[5..7]**: frequency divider: equivalent to the ATMEGA registers SPI2X, SPR1 and SPR0. See the ATMEGA datasheet for more information.
+* **SPEED[5..7]**: frequency divider: equivalent to the ATMEGA registers SPR0 (5), SPR (6) and SPI2X (7). See the ATMEGA datasheet for more information.
 
 ## Pinout
 
