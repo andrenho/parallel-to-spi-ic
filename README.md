@@ -1,6 +1,6 @@
 # Parallel to SPI converter IC using ATMEGA microcontroller.
 
-Embedding this code in a ATMEGA8/48/88/168/328 will allow the microcontroller to act as 8-bit parallel to SPI master converter.
+Embedding this code in a **ATMEGA8/48/88/168/328** will allow the microcontroller to act as 8-bit parallel to SPI master converter.
 
 The converter has two 8-bit registers:
 
