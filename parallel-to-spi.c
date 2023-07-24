@@ -42,8 +42,8 @@ uint8_t config = 0x0;
 
 static void irq_pulse()
 {
-	DDRB &= ~_BV(IRQ);
-	DDRB |= _BV(IRQ);
+	PORTB &= ~_BV(IRQ);
+	PORTB |= _BV(IRQ);
 }
 
 static void read(bool rs)
@@ -61,11 +61,13 @@ static void read(bool rs)
 	irq_pulse();
 
 	// wait until read is over
-	loop_until_bit_is_set(PORTD, RD);
+	loop_until_bit_is_set(PIND, RD);
 
 	// restore data lines to high impedance
-	DDRC = 0x0;
-	DDRD &= ~_BV(D6) & ~_BV(D7);
+	PORTC = 0x0;
+	PORTD &= ~_BV(D6) & ~_BV(D7);
+	DDRC &= ~0b00111111;
+	DDRD &= ~0b11000000;
 }
 
 static void write_data()

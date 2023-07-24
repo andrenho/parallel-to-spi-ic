@@ -16,9 +16,6 @@ MCU_GCC=atmega8
 MCU_AVRDUDE=atmega8
 MCU_LD=avr6
 
-# Microcontroller speed, in Hz. Used by avr-libc for delays.
-F_CPU=8000000UL
-
 # Serial speed, in baud. Used by avr-libc for UART speed calculation.
 BAUD=$(shell cat ../BAUD)
 
@@ -34,7 +31,7 @@ WARNINGS=-Wall -Wextra \
 	 -Wformat=2 -Wno-unused-parameter -Wshadow \
 	 -Wwrite-strings \
 	 -Wredundant-decls -Wnested-externs -Wmissing-include-dirs -Wjump-misses-init -Wlogical-op
-CPPFLAGS=-std=c11 ${WARNINGS} -Os -DF_CPU=${F_CPU} -DBAUD=${BAUD} -mmcu=${MCU_GCC} ${DEFINES} -ffunction-sections -fdata-sections -mcall-prologues
+CPPFLAGS=-std=c11 ${WARNINGS} -Os -DBAUD=${BAUD} -mmcu=${MCU_GCC} ${DEFINES} -ffunction-sections -fdata-sections -mcall-prologues
 
 all: ${PROJECT}.hex
 
