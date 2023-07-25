@@ -145,6 +145,8 @@ int main()
 	// initialize SPI as master
 	SPCR |= (1 << SPE) | (1 << MSTR);
 
+	irq_pulse();
+
 	// main loop
 	while (1) {
 		uint8_t in = PIND;
